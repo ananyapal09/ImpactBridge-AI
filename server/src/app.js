@@ -1,16 +1,11 @@
 const express = require("express");
 
+const healthRoutes = require("./routes/health.routes");
+
 const app = express();
 
-// Middleware
 app.use(express.json());
 
-// Health Check Route
-app.get("/", (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Welcome to ImpactBridge API 🚀"
-    });
-});
+app.use("/api", healthRoutes);
 
 module.exports = app;
