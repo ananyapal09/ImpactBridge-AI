@@ -15,10 +15,10 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
-      "https://impact-bridge-ai-kkyu.vercel.app",
-      "https://impact-bridge-ai-kkyu-vo9egfq1-ananya-d2af.vercel.app",
-    ],
+  "http://localhost:5173",
+  "https://impact-bridge-ai-kkyu.vercel.app",
+  "https://impact-bridge-ai-kkyu-vo9egfql1-ananya-d2af.vercel.app",
+],
     credentials: true,
   })
 );
