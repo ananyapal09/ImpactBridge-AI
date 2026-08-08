@@ -10,8 +10,6 @@ const adminRoutes = require("./routes/admin.routes");
 const donationRoutes = require("./routes/donation.routes");
 const aiRoutes = require("./routes/ai.routes");
 
-
-
 const app = express();
 
 app.use(
@@ -19,10 +17,12 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://impact-bridge-ai-kkyu.vercel.app",
+      "https://impact-bridge-ai-kkyu-vo9egfq1-ananya-d2af.vercel.app",
     ],
     credentials: true,
   })
 );
+
 app.use(express.json());
 
 app.use("/api", healthRoutes);
@@ -33,6 +33,5 @@ app.use("/api/campaigns", campaignRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/donations", donationRoutes);
 app.use("/api/ai", aiRoutes);
-
 
 module.exports = app;
