@@ -16,11 +16,13 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://impact-bridge-ai-kkyu.vercel.app",
+    ],
     credentials: true,
   })
 );
-
 app.use(express.json());
 
 app.use("/api", healthRoutes);
