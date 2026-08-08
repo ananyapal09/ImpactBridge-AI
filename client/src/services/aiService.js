@@ -1,14 +1,12 @@
-import axios from "axios";
-
-const API = "http://localhost:3000/api/ai";
+import api from "../utils/axios";
 
 export const chatWithAI = async (
   campaignId,
   question,
   token
 ) => {
-  const res = await axios.post(
-    `${API}/chat`,
+  const res = await api.post(
+    "/ai/chat",
     {
       campaignId,
       question,
@@ -23,11 +21,9 @@ export const chatWithAI = async (
   return res.data;
 };
 
-export const getAISummary = async (
-  campaignId
-) => {
-  const res = await axios.post(
-    `${API}/summary`,
+export const getAISummary = async (campaignId) => {
+  const res = await api.post(
+    "/ai/summary",
     {
       campaignId,
     }
@@ -37,9 +33,7 @@ export const getAISummary = async (
 };
 
 export const getRecommendations = async () => {
-  const res = await axios.get(
-    `${API}/recommendations`
-  );
+  const res = await api.get("/ai/recommendations");
 
   return res.data;
 };

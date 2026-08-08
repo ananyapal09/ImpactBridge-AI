@@ -1,14 +1,12 @@
-import axios from "axios";
-
-const API = "http://localhost:3000/api/campaigns";
+import api from "../utils/axios";
 
 export const getAllCampaigns = async () => {
-  const res = await axios.get(API);
+  const res = await api.get("/campaigns");
   return res.data;
 };
 
 export const getMyCampaigns = async (token) => {
-  const res = await axios.get(`${API}/my-campaigns`, {
+  const res = await api.get("/campaigns/my-campaigns", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -17,12 +15,12 @@ export const getMyCampaigns = async (token) => {
 };
 
 export const getCampaignById = async (id) => {
-  const res = await axios.get(`${API}/${id}`);
+  const res = await api.get(`/campaigns/${id}`);
   return res.data;
 };
 
 export const createCampaign = async (data, token) => {
-  const res = await axios.post(API, data, {
+  const res = await api.post("/campaigns", data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -31,7 +29,7 @@ export const createCampaign = async (data, token) => {
 };
 
 export const updateCampaign = async (id, data, token) => {
-  const res = await axios.put(`${API}/${id}`, data, {
+  const res = await api.put(`/campaigns/${id}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -40,7 +38,7 @@ export const updateCampaign = async (id, data, token) => {
 };
 
 export const deleteCampaign = async (id, token) => {
-  const res = await axios.delete(`${API}/${id}`, {
+  const res = await api.delete(`/campaigns/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

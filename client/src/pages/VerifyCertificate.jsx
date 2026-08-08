@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import axios from "axios";
+import api from "../utils/axios";
 
 export default function VerifyCertificate() {
   const [searchParams] = useSearchParams();
@@ -24,8 +24,8 @@ export default function VerifyCertificate() {
       setError("");
       setCertificate(null);
 
-      const response = await axios.get(
-        `http://localhost:3000/api/donations/certificate/verify/${encodeURIComponent(
+      const response = await api.get(
+        `/donations/certificate/verify/${encodeURIComponent(
           certificateId.trim()
         )}`
       );
@@ -42,14 +42,10 @@ export default function VerifyCertificate() {
   };
 
   return (
-    <div className="min-h-screen bg-[#14201B] text-white flex items-center justify-center px-6 py-12">
-
+    <div className="min-h-screen flex items-center justify-center px-6 py-12">
       <div className="w-full max-w-2xl">
 
-        {/* Header */}
-
         <div className="text-center mb-10">
-
           <h1 className="hero-title text-5xl">
             ImpactBridge
           </h1>
@@ -57,10 +53,7 @@ export default function VerifyCertificate() {
           <p className="mt-3 text-[#93A79A]">
             Donation Certificate Verification
           </p>
-
         </div>
-
-        {/* Verification Card */}
 
         <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl">
 
@@ -93,15 +86,11 @@ export default function VerifyCertificate() {
 
           </div>
 
-          {/* Error */}
-
           {error && (
             <div className="mt-6 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-red-400">
               {error}
             </div>
           )}
-
-          {/* Verified Certificate */}
 
           {certificate && (
             <div className="mt-8 rounded-2xl border border-green-500/20 bg-green-500/10 p-6">
@@ -169,6 +158,7 @@ export default function VerifyCertificate() {
                     <p className="text-sm text-[#93A79A]">
                       Donation
                     </p>
+
                     <p className="mt-1 text-xl font-bold text-[#E7B14C]">
                       ₹{Number(
                         certificate.amount
@@ -180,6 +170,7 @@ export default function VerifyCertificate() {
                     <p className="text-sm text-[#93A79A]">
                       Date
                     </p>
+
                     <p className="mt-1 font-semibold text-white">
                       {new Date(
                         certificate.donationDate
@@ -209,7 +200,6 @@ export default function VerifyCertificate() {
         </p>
 
       </div>
-
     </div>
   );
 }

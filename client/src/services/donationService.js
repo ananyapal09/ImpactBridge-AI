@@ -1,6 +1,4 @@
-import axios from "axios";
-
-const API = "http://localhost:3000/api/donations";
+import api from "../utils/axios";
 
 // Create Razorpay Order
 export const createOrder = async (
@@ -8,8 +6,8 @@ export const createOrder = async (
   amount,
   token
 ) => {
-  const res = await axios.post(
-    `${API}/create-order`,
+  const res = await api.post(
+    "/donations/create-order",
     {
       campaignId,
       amount,
@@ -29,8 +27,8 @@ export const verifyPayment = async (
   data,
   token
 ) => {
-  const res = await axios.post(
-    `${API}/verify`,
+  const res = await api.post(
+    "/donations/verify",
     data,
     {
       headers: {
@@ -44,8 +42,8 @@ export const verifyPayment = async (
 
 // Get Logged-in User Donations
 export const getMyDonations = async (token) => {
-  const res = await axios.get(
-    `${API}/my`,
+  const res = await api.get(
+    "/donations/my",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -55,12 +53,13 @@ export const getMyDonations = async (token) => {
 
   return res.data;
 };
+
 // Download Donation Certificate
 export const downloadCertificate = async (donationId) => {
   const token = localStorage.getItem("token");
 
-  const res = await axios.get(
-    `${API}/${donationId}/certificate`,
+  const res = await api.get(
+    `/donations/${donationId}/certificate`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

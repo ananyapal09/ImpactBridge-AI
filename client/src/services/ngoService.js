@@ -1,8 +1,6 @@
-import axios from "axios";
-
-const API = "http://localhost:3000/api/ngos";
+import api from "../utils/axios";
 
 export const getVerifiedNGOs = async () => {
-  const res = await axios.get(API);
+  const res = await api.get("/ngos");
   return res.data;
 };
