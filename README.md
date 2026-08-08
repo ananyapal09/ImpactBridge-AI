@@ -1,10 +1,30 @@
-# 🚀 ImpactBridge AI
+# 🌉 ImpactBridge AI
 
-> An AI-powered, transparent crowdfunding platform that helps donors discover verified campaigns, evaluate campaign risk, and make informed donation decisions.
+> AI-powered crowdfunding platform built to improve trust, transparency, and informed giving.
 
-ImpactBridge AI combines **explainable fraud-risk scoring, LLM-powered campaign analysis, TF-IDF recommendations, NGO verification, AI campaign assistance, and secure online donations** into a single platform.
+ImpactBridge AI connects donors with verified NGOs and fundraising campaigns while
+providing AI-assisted campaign analysis, explainable safety scoring,
+content-based recommendations, secure Razorpay payments, and digitally
+verifiable donation certificates.
 
----
+## 🚀 Live Demo
+
+**Coming soon — deployment in progress**
+
+## ✨ Highlights
+
+- 🔐 JWT authentication with Donor, NGO & Admin roles
+- 🏢 NGO verification and management
+- 📢 Campaign creation and management
+- 🤖 AI-powered campaign analysis
+- 🛡️ Explainable campaign safety/risk scoring
+- 🎯 TF-IDF + cosine similarity recommendations
+- 💬 Campaign-specific AI assistant
+- 💳 Razorpay payment integration
+- 📊 Donor, NGO & Admin analytics dashboards
+- 📜 Downloadable donation certificates
+- 🔎 QR-based certificate verification
+- ☁️ Cloudinary campaign image uploads
 
 ## 🎯 Problem Statement
 
@@ -23,8 +43,42 @@ ImpactBridge addresses these problems by introducing an **AI-assisted trust and 
 ---
 
 # ✨ Key Features
+## 📜 Donation Certificates & Verification
 
-## 🔐 Secure Authentication
+After a successful donation, ImpactBridge generates a digitally
+verifiable donation certificate.
+
+### Certificate includes
+
+- Donor name
+- Campaign name
+- NGO name
+- Donation amount
+- Donation date
+- Payment status
+- Unique certificate ID
+- ImpactBridge verification stamp
+- QR verification code
+
+### Verification Flow
+
+```text
+Successful Donation
+        ↓
+Certificate ID Generated
+        ↓
+Certificate PDF Generated
+        ↓
+QR Code Embedded
+        ↓
+Donor Downloads Certificate
+        ↓
+QR Scanned
+        ↓
+ImpactBridge Verification Page
+        ↓
+Certificate & Donation Verified
+
 
 ImpactBridge supports multiple user roles with protected access.
 
@@ -514,11 +568,11 @@ ImpactBridge-AI/
 │   ├── testAI.js
 │   └── testClaude.js
 │
-├── ai-service/
+
 │
-├── docs/
-│   ├── architecture.md
-│   ├── api-design.md
+
+│   ├.
+│  
 │   ├── database.md
 │   ├── features.md
 │   └── wireframes.md
@@ -751,3 +805,7 @@ Current platform capabilities include:
 ### Transparency. Trust. Impact.
 
 An AI-assisted crowdfunding platform focused on helping donors make more informed and trustworthy giving decisions.
+
+
+
+
